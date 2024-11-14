@@ -22,7 +22,7 @@ const CustomerDetailHeader = () => {
         >
           {t(purchase_frequency.back)}
         </Button>
-        <h2 className="text-2xl font-semibold text-white">{t(purchase_frequency.title)}</h2>
+        <h2 className="text-2xl font-semibold text-white">상세 구매 내역</h2>
       </div>
     </div>
   )
