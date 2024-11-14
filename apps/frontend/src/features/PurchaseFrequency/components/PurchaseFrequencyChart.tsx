@@ -21,15 +21,15 @@ const PurchaseFrequencyChart = () => {
   //로딩 및 에러 처리
   if (isError)
     return (
-      <div className="flex items-center justify-center min-h-[448px]">
+      <p className="flex items-center justify-center min-h-[448px]">
         {t(purchase_frequency.error)} {error?.message}
-      </div>
+      </p>
     )
   if (isLoading)
-    return <div className="flex items-center justify-center min-h-[448px]">{t(purchase_frequency.loading)}</div>
+    return <p className="flex items-center justify-center min-h-[448px]">{t(purchase_frequency.loading)}</p>
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-lg w-full">
+    <section className="p-6 bg-white rounded-lg shadow-lg w-full">
       <div style={{ height: '400px' }}>
         <ResponsiveBar
           data={data || []} // 데이터가 존재하는 경우 전달
@@ -89,7 +89,7 @@ const PurchaseFrequencyChart = () => {
           animate={true}
         />
       </div>
-    </div>
+    </section>
   )
 }
 

@@ -33,7 +33,7 @@ const CustomerListHeader = () => {
   }, [searchTerm, setName])
 
   return (
-    <div>
+    <header>
       <div className="flex items-center justify-between mb-6">
         <Button
           className="text-white hover:text-white hover:bg-gray-700 bg-black transition font-medium"
@@ -60,7 +60,7 @@ const CustomerListHeader = () => {
           <option value="desc">Sort by Amount: Descending</option>
         </select>
       </div>
-    </div>
+    </header>
   )
 }
 

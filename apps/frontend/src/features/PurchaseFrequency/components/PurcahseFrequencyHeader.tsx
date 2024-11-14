@@ -28,7 +28,7 @@ const PurcahseFrequencyHeader = () => {
   }
 
   return (
-    <div>
+    <header>
       <div className="flex items-center justify-between mb-6">
         <Button
           className="text-white hover:text-white hover:bg-gray-700 bg-black transition font-medium"
@@ -69,7 +69,7 @@ const PurcahseFrequencyHeader = () => {
           />
         </div>
       </div>
-    </div>
+    </header>
   )
 }
 

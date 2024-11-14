@@ -13,7 +13,7 @@ const CustomerDetailHeader = () => {
   }
 
   return (
-    <div>
+    <header>
       <div className="flex items-center justify-between mb-6">
         <Button
           className="text-white hover:text-white hover:bg-gray-700 bg-black transition font-medium"
@@ -23,7 +23,7 @@ const CustomerDetailHeader = () => {
         </Button>
         <h2 className="text-2xl font-semibold text-white">{t(customer_detail.title)}</h2>
       </div>
-    </div>
+    </header>
   )
 }
 
