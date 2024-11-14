@@ -74,6 +74,8 @@ yarn start-client
 
 
 ----------------------------------------------------
+# 구현 결과
+
 ### frontend 상단에 .env 파일 생성 
 VITE_API_BASE_URL=http://localhost:4000
 
