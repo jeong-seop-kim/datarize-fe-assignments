@@ -2,8 +2,11 @@ import { useState } from 'react'
 import { useCustomerList } from '../hooks/useCustomerList'
 import { useCustomerStore } from '../../../stores/useCustomerStore'
 import { useNavigate } from 'react-router-dom'
+import useTranslation from '../../../hooks/useTranslation'
+import { customer_list } from '../../../utils/i18n/wording'
 
 const CustomerListTable = () => {
+  const { t } = useTranslation()
   const navigate = useNavigate()
 
   // Customer 스토어에서 상태 및 업데이트 함수 가져오기
@@ -17,18 +20,18 @@ const CustomerListTable = () => {
   const handleClickCustomerRow = (id: string) => {
     navigate(`/customer/detail?id=${id}`)
   }
-  if (isLoading) return <p>Loading...</p>
-  if (isError) return <p>Error fetching customers</p>
+  if (isLoading) return <p>{t(customer_list.loading)}</p>
+  if (isError) return <p>{t(customer_list.error)}</p>
 
   return (
     <div className="">
       <table className="table-auto w-full text-white">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Count</th>
-            <th>Total Amount</th>
+            <th>{t(customer_list.id)}</th>
+            <th>{t(customer_list.name)}</th>
+            <th>{t(customer_list.count)}</th>
+            <th>{t(customer_list.totalAmount)}</th>
           </tr>
         </thead>
         <tbody className="">

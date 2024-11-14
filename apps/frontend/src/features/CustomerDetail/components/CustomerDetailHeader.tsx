@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import Button from '../../../components/Button'
-import { useCustomerStore } from '../../../stores/useCustomerStore'
-import { purchase_frequency } from '../../../utils/i18n/wording'
+import { customer_detail, purchase_frequency } from '../../../utils/i18n/wording'
 import useTranslation from '../../../hooks/useTranslation'
 
 const CustomerDetailHeader = () => {
@@ -22,7 +21,7 @@ const CustomerDetailHeader = () => {
         >
           {t(purchase_frequency.back)}
         </Button>
-        <h2 className="text-2xl font-semibold text-white">상세 구매 내역</h2>
+        <h2 className="text-2xl font-semibold text-white">{t(customer_detail.title)}</h2>
       </div>
     </div>
   )
