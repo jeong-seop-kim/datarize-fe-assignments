@@ -74,6 +74,8 @@ yarn start-client
 
 
 ----------------------------------------------------
+# 구현 결과
+
 ### frontend 상단에 .env 파일 생성 
 VITE_API_BASE_URL=http://localhost:4000
 
@@ -92,56 +94,11 @@ React Query는 React 애플리케이션에서 서버 데이터를 효율적으�
 ### react-datepicker && nivo 사용 이유
 날짜 선택에는 react-datepicker 라이브러리를, 바 차트를 위해서는 nivo 라이브러리를 사용했습니다. nivo의 경우 사용한 경험이 있어서 빠르게 적용할 수 있으며 https://nivo.rocks/bar/ 에서 처럼 어느정도 커스타마이징을 실제로 설정할 수 있는 문서 페이지를 제공해주어 적용 및 커스텀에 용이하다는 장점이 있습니다. /purchase-frequency 에서 date를 zustand로 이용하여 전역상태 관리하였는데 이로 인해 프롭스 드릴링 및 최상단에서 스테이트로 관리하고 있는 것을 삭제하여 각각의 컴포넌트에서 필요한 코드라인만 쓸 수 있어서 컴팩트하게 컴포넌트를 관리할 수 있습니다.
 
-src
-├── App.css
-├── App.tsx
-├── api
-│   └── axiosInstance.ts ( 모든 axios 요청에 대한 request, response console.log ) 
-├── assets
-│   └── react.svg
-├── components ( UI 공통 컴포넌트 )
-│   ├── Button.tsx
-│   └── DashboardLayout.tsx
-├── features
-│   ├── CustomerDetail ( customer/detail ) 
-│   │   ├── components
-│   │   │   ├── CustomerDetailHeader.tsx
-│   │   │   ├── CustomerDetailList.tsx
-│   │   │   └── CustomerDetailPage.tsx ( Main Component ) 
-│   │   └── hooks
-│   │       └── useCustomerDetail.ts ( Data Fetching ) 
-│   ├── CustomerList ( customer/list ) 
-│   │   ├── components
-│   │   │   ├── CustomerListHeader.tsx
-│   │   │   ├── CustomerListPage.tsx  ( Main Component ) 
-│   │   │   └── CustomerListTable.tsx
-│   │   └── hooks
-│   │       └── useCustomerList.ts ( Data Fetching ) 
-│   ├── Dashboard (/)
-│   │   └── components
-│   │       └── DashboardPage.tsx  ( Main Component ) 
-│   └── PurchaseFrequency ( purchase/chart/frequency ) 
-│       ├── components
-│       │   ├── PurcahseFrequencyHeader.tsx
-│       │   ├── PurchaseFrequencyChart.tsx
-│       │   └── PurchaseFrequencyPage.tsx ( Main Component ) 
-│       └── hooks
-│           └── usePurchaseFrequency.ts ( Data Fetching ) 
-├── folder_structure.txt
-├── hooks
-│   └── useTranslation.ts ( 워딩 처리를 위한 훅 )
-├── index.css
-├── main.tsx
-├── stores
-│   ├── useCustomerStore.ts ( 전역 상태 관리 : customer 검색 및 정렬 데이터 )  
-│   └── useDateStore.ts ( 전역 상태 관리 : 차트 날짜 ) 
-├── utils
-│   ├── apis.ts ( api endpoint 관리 )
-│   ├── const.ts ( 상수 관리 )
-│   └── i18n
-│       └── wording.ts ( 워딩 관리 )
-└── vite-env.d.ts
+### 폴더 구조 및 스크린샷
 
-20 directories, 29 files
-
+<img width="473" alt="스크린샷 2024-11-14 오후 6 47 43" src="https://github.com/user-attachments/assets/2ceb7419-c556-448c-9271-160e033608a1">
+<img width="1173" alt="스크린샷 2024-11-14 오후 6 49 01" src="https://github.com/user-attachments/assets/9e97db42-5911-4aee-9b46-458f04d3b900">
+<img width="1168" alt="스크린샷 2024-11-14 오후 6 48 54" src="https://github.com/user-attachments/assets/1021f10f-d14c-43cf-91b7-23893d60ce76">
+<img width="1174" alt="스크린샷 2024-11-14 오후 6 48 47" src="https://github.com/user-attachments/assets/29ad77a8-aff3-4436-90ca-2d5bdc895c98">
+<img width="1166" alt="스크린샷 2024-11-14 오후 6 48 38" src="https://github.com/user-attachments/assets/dd7f9814-e904-4f64-b982-b050728abadc">
 
