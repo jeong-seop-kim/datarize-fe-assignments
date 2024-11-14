@@ -5,6 +5,13 @@ import { useNavigate } from 'react-router-dom'
 import useTranslation from '../../../hooks/useTranslation'
 import { customer_list } from '../../../utils/i18n/wording'
 
+interface Customer {
+  id: number // 고객 ID
+  name: string // 고객 이름
+  count: number // 총 구매 횟수
+  totalAmount: number // 총 구매 금액
+}
+
 const CustomerListTable = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -18,7 +25,8 @@ const CustomerListTable = () => {
   const sortBy = useCustomerStore((state) => state.sortBy)
 
   // /api/customers 에서 유저 리스트 받아오기 query parameter : 오름차순, 이름 검색
-  const { data, isLoading, isError } = useCustomerList(sortBy, name)
+  const { data, isLoading, isError }: { data: Customer[] | undefined; isLoading: boolean; isError: boolean } =
+    useCustomerList(sortBy, name)
 
   // 고객 상세 페이지로 이동
   const handleClickCustomerRow = (id: string) => {

@@ -4,6 +4,14 @@ import useTranslation from '../../../hooks/useTranslation'
 import { customer_detail } from '../../../utils/i18n/wording'
 import { useState } from 'react'
 
+interface Purchase {
+  date: string // ISO 형식 날짜 문자열
+  quantity: number // 구매 수량
+  product: string // 제품 이름
+  price: number // 제품 가격
+  imgSrc: string // 이미지 URL
+}
+
 const CustomerDetailList = () => {
   const { t } = useTranslation()
   const location = useLocation()
@@ -11,7 +19,8 @@ const CustomerDetailList = () => {
   const customerId = query.get('id') || ''
 
   // /api/customers 에서 유저 리스트 받아오기 query parameter : 오름차순, 이름 검색
-  const { data, isLoading, isError } = useCustomerDetail(customerId)
+  const { data, isLoading, isError }: { data: Purchase[] | undefined; isLoading: boolean; isError: boolean } =
+    useCustomerDetail(customerId)
 
   // 정렬 상태 관리
   const [sortColumn, setSortColumn] = useState<string | null>(null)
@@ -63,8 +72,8 @@ const CustomerDetailList = () => {
           </tr>
         </thead>
         <tbody>
-          {sortedData.map((purchase: any) => (
-            <tr key={purchase?.id} className="hover:bg-gray-500">
+          {sortedData.map((purchase: Purchase, index) => (
+            <tr key={index} className="hover:bg-gray-500">
               <td className="flex justify-center items-center">
                 <img src={purchase?.imgSrc || ''} className="px-6 py-1 w-[300px] h-[200px]" />
               </td>

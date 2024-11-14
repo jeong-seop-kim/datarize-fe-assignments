@@ -5,6 +5,11 @@ import { purchase_frequency } from '../../../utils/i18n/wording'
 import useTranslation from '../../../hooks/useTranslation'
 import { useDateStore } from '../../../stores/useDateStore'
 
+interface PurchaseFrequency {
+  range: string // 가격 범위 (예: "0 - 20000")
+  count: number // 해당 범위에서의 구매 빈도
+}
+
 const PurchaseFrequencyChart = () => {
   const { t } = useTranslation()
 
@@ -13,10 +18,17 @@ const PurchaseFrequencyChart = () => {
   const toDate = useDateStore((state) => state.to)
 
   //usePurchaseFrequency훅을 통해서 axios HTTP 요청 -> react-qeury 연동
-  const { data, isLoading, isError, error } = usePurchaseFrequency(
-    fromDate ? fromDate.toISOString() : '',
-    toDate ? toDate.toISOString() : '',
-  )
+  const {
+    data,
+    isLoading,
+    isError,
+    error,
+  }: {
+    data: PurchaseFrequency[] | any
+    isError: boolean
+    isLoading: boolean
+    error: { message: string | null } | null
+  } = usePurchaseFrequency(fromDate ? fromDate.toISOString() : '', toDate ? toDate.toISOString() : '')
 
   //로딩 및 에러 처리
   if (isError)
