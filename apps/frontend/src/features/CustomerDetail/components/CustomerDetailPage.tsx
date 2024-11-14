@@ -1,16 +1,15 @@
-import React, { useState } from 'react'
-import { useCustomerList } from '../hooks/useCustomerList'
-import CustomerListHeader from './CustomerDetailHeader'
-import CustomerListTable from './CustomerListTable'
 import DashboardLayout from '../../../components/DashboardLayout'
+import CustomerDetailHeader from './CustomerDetailHeader'
+import CustomerListHeader from './CustomerDetailHeader'
+import CustomerDetailInformation from './CustomerDetailInformation'
 
 const CustomerDetailPage = () => {
   return (
     <DashboardLayout>
-      sdkjf
       {/* 헤더 */}
-      {/* <CustomerListHeader /> */}
-      <CustomerDetailPage />
+      <CustomerDetailHeader />
+      {/* 상세 정보 */}
+      <CustomerDetailInformation />
     </DashboardLayout>
   )
 }

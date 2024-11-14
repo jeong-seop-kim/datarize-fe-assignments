@@ -4,15 +4,9 @@ import { useCustomerStore } from '../../../stores/useCustomerStore'
 import { purchase_frequency } from '../../../utils/i18n/wording'
 import useTranslation from '../../../hooks/useTranslation'
 
-const CustomerListHeader = () => {
+const CustomerDetailHeader = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
-
-  // Zustand 스토어에서 상태 및 업데이트 함수 가져오기
-  const name = useCustomerStore((state) => state.name)
-  const sortBy = useCustomerStore((state) => state.sortBy)
-  const setName = useCustomerStore((state) => state.setName)
-  const setSortBy = useCustomerStore((state) => state.setSortBy)
 
   // 뒤로 가기 함수
   const goBack = () => {
@@ -34,4 +28,4 @@ const CustomerListHeader = () => {
   )
 }
 
-export default CustomerListHeader
+export default CustomerDetailHeader

@@ -11,11 +11,11 @@ const CustomerListTable = () => {
   const sortBy = useCustomerStore((state) => state.sortBy)
 
   // /api/customers 에서 유저 리스트 받아오기 query parameter : 오름차순, 이름 검색
-  const { data: customers, isLoading, isError } = useCustomerList(sortBy, name)
+  const { data, isLoading, isError } = useCustomerList(sortBy, name)
 
   // 고객 상세 페이지로 이동
   const handleClickCustomerRow = (id: string) => {
-    navigate(`/customer-detail?id=${id}`)
+    navigate(`/customer/detail?id=${id}`)
   }
   if (isLoading) return <p>Loading...</p>
   if (isError) return <p>Error fetching customers</p>
@@ -32,7 +32,7 @@ const CustomerListTable = () => {
           </tr>
         </thead>
         <tbody className="">
-          {customers.map((customer: any) => (
+          {data.map((customer: any) => (
             <tr
               key={customer?.id}
               onClick={() => handleClickCustomerRow(customer?.id)}
