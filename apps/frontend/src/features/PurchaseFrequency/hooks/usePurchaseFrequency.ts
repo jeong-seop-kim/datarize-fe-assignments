@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
+import { API_END_POINT_HOST_NAME } from '../../../utils/const'
 
 const fetchPurchaseFrequency = async (from: string, to: string) => {
-  const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/purchase-frequency`, {
+  const { data } = await axios.get(`${API_END_POINT_HOST_NAME}/api/purchase-frequency`, {
     params: { from, to },
   })
-  console.log(data, 'AXIOS : response')
+
   return data
 }
 
