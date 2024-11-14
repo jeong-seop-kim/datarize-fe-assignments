@@ -10,15 +10,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Dashboard />} />
-<<<<<<< Updated upstream
         <Route path="/purchase/chart/frequency" element={<PurchaseFrequencyPage />} />
         <Route path="/customer/list" element={<CustomerListPage />} />
         <Route path="/customer/detail" element={<CustomerDetailPage />} />
-=======
-        <Route path="/purchase-frequency" element={<PurchaseFrequencyPage />} />
-        <Route path="/customer-list" element={<CustomerListPage />} />
-        <Route path="/customer-detail" element={<CustomerDetailPage />} />
->>>>>>> Stashed changes
       </Routes>
     </Router>
   )
