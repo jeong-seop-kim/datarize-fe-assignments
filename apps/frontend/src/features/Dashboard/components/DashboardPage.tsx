@@ -11,13 +11,13 @@ const DashboardPage = () => {
         <h1 className="text-3xl font-bold text-center mb-8">{t(dashboard_page.title)}</h1>
 
         <div className="grid grid-cols-2 gap-6 text-yellow">
-          <Link to="/purchase-frequency">
+          <Link to="/purchase/chart/frequency">
             <Button>
               <span className="text-white">{t(dashboard_page.label1)}</span>
             </Button>
           </Link>
 
-          <Link to="/customer-list">
+          <Link to="/customer/list">
             <Button>
               <span className="text-white">{t(dashboard_page.label2)}</span>
             </Button>

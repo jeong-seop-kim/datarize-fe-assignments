@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useCustomerList } from '../hooks/useCustomerList'
+import CustomerListHeader from './CustomerListHeader'
+import CustomerListTable from './CustomerListTable'
+import DashboardLayout from '../../../components/DashboardLayout'
 
-const CustomerListPage = () => {
-  return <div className="p-6">구매 빈도 차트 페이지</div>
+const CustomerList = () => {
+  return (
+    <DashboardLayout>
+      {/* 헤더 */}
+      <CustomerListHeader />
+      {/*  차트 */}
+      <CustomerListTable />
+    </DashboardLayout>
+  )
 }
 
-export default CustomerListPage
+export default CustomerList
