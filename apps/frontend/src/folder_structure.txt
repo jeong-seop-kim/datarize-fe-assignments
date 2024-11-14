@@ -1,0 +1,51 @@
+.
+├── App.css
+├── App.tsx
+├── api
+│   └── axiosInstance.ts
+├── assets
+│   └── react.svg
+├── components
+│   ├── Button.tsx
+│   └── DashboardLayout.tsx
+├── features
+│   ├── CustomerDetail
+│   │   ├── components
+│   │   │   ├── CustomerDetailHeader.tsx
+│   │   │   ├── CustomerDetailList.tsx
+│   │   │   └── CustomerDetailPage.tsx
+│   │   └── hooks
+│   │       └── useCustomerDetail.ts
+│   ├── CustomerList
+│   │   ├── components
+│   │   │   ├── CustomerListHeader.tsx
+│   │   │   ├── CustomerListPage.tsx
+│   │   │   └── CustomerListTable.tsx
+│   │   └── hooks
+│   │       └── useCustomerList.ts
+│   ├── Dashboard
+│   │   └── components
+│   │       └── DashboardPage.tsx
+│   └── PurchaseFrequency
+│       ├── components
+│       │   ├── PurcahseFrequencyHeader.tsx
+│       │   ├── PurchaseFrequencyChart.tsx
+│       │   └── PurchaseFrequencyPage.tsx
+│       └── hooks
+│           └── usePurchaseFrequency.ts
+├── folder_structure.txt
+├── hooks
+│   └── useTranslation.ts
+├── index.css
+├── main.tsx
+├── stores
+│   ├── useCustomerStore.ts
+│   └── useDateStore.ts
+├── utils
+│   ├── apis.ts
+│   ├── const.ts
+│   └── i18n
+│       └── wording.ts
+└── vite-env.d.ts
+
+20 directories, 29 files
