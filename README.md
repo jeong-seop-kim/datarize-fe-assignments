@@ -74,6 +74,8 @@ yarn start-client
 
 
 ----------------------------------------------------
+### frontend 상단에 .env 파일 생성 
+VITE_API_BASE_URL=http://localhost:4000
 
 ### Tailwind CSS 사용 이유
 가장 익숙하고 빠르게 사용할 수 있는 스타일링 라이브러리 입니다. 또한, Tailwind CSS를 추가하면 리액트 프론트엔드코드에서 빠르고 일관된 스타일링을 쉽게 적용할 수 있습니다. Tailwind는 다양한 유틸리티 클래스를 제공하므로 별도의 CSS 파일을 작성하는 시간을 절약하면서도 사용자 정의 스타일을 손쉽게 적용하고 관리할 수 있습니다. 특히, React 프로젝트에서는 Tailwind의 클래스 네이밍 방식 덕분에 컴포넌트 스타일링이 직관적이고 반복 작업이 줄어듭니다.
@@ -87,8 +89,59 @@ react-router-dom을 추가하는 이유는 React 애플리케이션에서 URL �
 ### react-query 사용 이유
 React Query는 React 애플리케이션에서 서버 데이터를 효율적으로 캐싱하고 동기화하여 성능과 사용자 경험을 개선하는 라이브러리입니다. 자동 캐싱과 데이터 무효화, 로딩과 에러 상태 관리 등을 통해 서버 요청을 최적화하고, 최신 데이터를 유지하면서 불필요한 요청을 줄일 수 있습니다. 또한, 백그라운드에서 데이터 갱신 및 포커싱 재시도 기능으로 리소스를 절약하며 개발 도구를 통해 쿼리 상태를 실시간으로 모니터링하여 디버깅을 간편하게 만듭니다. React Query는 특히 자주 갱신되는 데이터가 필요한 프로젝트에서 큰 장점을 발휘합니다.
 
-### /purchase-frequency 구현 && nivo 사용 이유
+### react-datepicker && nivo 사용 이유
 날짜 선택에는 react-datepicker 라이브러리를, 바 차트를 위해서는 nivo 라이브러리를 사용했습니다. nivo의 경우 사용한 경험이 있어서 빠르게 적용할 수 있으며 https://nivo.rocks/bar/ 에서 처럼 어느정도 커스타마이징을 실제로 설정할 수 있는 문서 페이지를 제공해주어 적용 및 커스텀에 용이하다는 장점이 있습니다. /purchase-frequency 에서 date를 zustand로 이용하여 전역상태 관리하였는데 이로 인해 프롭스 드릴링 및 최상단에서 스테이트로 관리하고 있는 것을 삭제하여 각각의 컴포넌트에서 필요한 코드라인만 쓸 수 있어서 컴팩트하게 컴포넌트를 관리할 수 있습니다.
 
+src
+├── App.css
+├── App.tsx
+├── api
+│   └── axiosInstance.ts ( 모든 axios 요청에 대한 request, response console.log ) 
+├── assets
+│   └── react.svg
+├── components ( UI 공통 컴포넌트 )
+│   ├── Button.tsx
+│   └── DashboardLayout.tsx
+├── features
+│   ├── CustomerDetail ( customer/detail ) 
+│   │   ├── components
+│   │   │   ├── CustomerDetailHeader.tsx
+│   │   │   ├── CustomerDetailList.tsx
+│   │   │   └── CustomerDetailPage.tsx ( Main Component ) 
+│   │   └── hooks
+│   │       └── useCustomerDetail.ts ( Data Fetching ) 
+│   ├── CustomerList ( customer/list ) 
+│   │   ├── components
+│   │   │   ├── CustomerListHeader.tsx
+│   │   │   ├── CustomerListPage.tsx  ( Main Component ) 
+│   │   │   └── CustomerListTable.tsx
+│   │   └── hooks
+│   │       └── useCustomerList.ts ( Data Fetching ) 
+│   ├── Dashboard (/)
+│   │   └── components
+│   │       └── DashboardPage.tsx  ( Main Component ) 
+│   └── PurchaseFrequency ( purchase/chart/frequency ) 
+│       ├── components
+│       │   ├── PurcahseFrequencyHeader.tsx
+│       │   ├── PurchaseFrequencyChart.tsx
+│       │   └── PurchaseFrequencyPage.tsx ( Main Component ) 
+│       └── hooks
+│           └── usePurchaseFrequency.ts ( Data Fetching ) 
+├── folder_structure.txt
+├── hooks
+│   └── useTranslation.ts ( 워딩 처리를 위한 훅 )
+├── index.css
+├── main.tsx
+├── stores
+│   ├── useCustomerStore.ts ( 전역 상태 관리 : customer 검색 및 정렬 데이터 )  
+│   └── useDateStore.ts ( 전역 상태 관리 : 차트 날짜 ) 
+├── utils
+│   ├── apis.ts ( api endpoint 관리 )
+│   ├── const.ts ( 상수 관리 )
+│   └── i18n
+│       └── wording.ts ( 워딩 관리 )
+└── vite-env.d.ts
+
+20 directories, 29 files
 
 
